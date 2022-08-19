@@ -1,0 +1,70 @@
+record(ai, "$(P):Mrkr-$(N):Freq:sRdV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, LINEAR)
+   field (ASLO, "1e-6")
+   field (DTYP, "stream")
+   field (LOPR, "0.1")
+   field (HOPR, "12.75e3")
+   field (PREC, "6")
+   field (INP, "@pnan5221.proto get_freq($(N)) $(PORT)")
+   field (SDIS,  "$(P):Mrkr-$(N):cDisable")
+   field (DISV, "1")
+#   field (SCAN, "1 second")
+   field (FLNK, "$(P):Mrkr-$(N):Ampl:sRdV")
+}
+record(ai, "$(P):Mrkr-$(N):Ampl:sRdV") {
+   field (DESC, "Amplitude")
+   field (EGU, "dB")
+   field (LINR, LINEAR)
+   field (ASLO, "1")
+   field (DTYP, "stream")
+   field (LOPR, "-120")
+   field (HOPR, "20")
+   field (PREC, "3")
+   field (INP, "@pnan5221.proto get_ampl_and_phase($(N),$(P):Mrkr-$(N):Phase:sRdV) $(PORT)")
+   field (SDIS,  "$(P):Mrkr-$(N):cDisable")
+   field (DISV, "1")
+#   field (SCAN, "1 second")
+   field (FLNK, "$(P):Trace-$(N):sRdV")
+}
+record(ai, "$(P):Mrkr-$(N):Phase:sRdV") {
+   field (DESC, "Phase")
+   field (EGU, "deg")
+   field (LOPR, "-180")
+   field (HOPR, "180")
+   field (PREC, "3")
+}
+
+record(waveform, "$(P):Trace-$(N):sRdV") {
+   field (DESC, "PNA's trace $(N)")
+   field (DTYP, "stream")
+   field (INP, "@pnan5221.proto get_trace($(N)) $(PORT)")
+   field (FTVL, "FLOAT")
+   field (NELM, "1000")
+   field (FLNK, "$(P):Freq-$(N):sCircBuf")
+}
+
+record(compress, "$(P):Freq-$(N):sCircBuf") {
+   field (DESC, "Freq Circular Buffer")
+   field(ALG, "Circular Buffer")
+   field(NSAM, "1000")
+   field(BALG, "FIFO Buffer")
+   field(INP, "$(P):Mrkr-$(N):Freq:sRdV")
+   field (EGU, "MHz")
+   field(FLNK, "$(P):MTR$(MTRNR)-RBV:sCircBuf")
+}
+
+record(compress, "$(P):MTR$(MTRNR)-RBV:sCircBuf") {
+   field (DESC, "Mtr Pos. Circ. Buffer")
+   field(ALG, "Circular Buffer")
+   field(NSAM, "1000")
+   field(BALG, "FIFO Buffer")
+   field(INP, "ESSPMAC:MTR$(MTRNR).RBV")
+   field (EGU, "turn")
+}
+
+record (bo, "$(P):Mrkr-$(N):cDisable") {
+   field (DESC, "Disable reading")
+}
+

@@ -1,0 +1,8 @@
+record(waveform, "$(P):Id") {
+   field (DESC, "PNA's id")
+   field (DTYP, "stream")
+   field (INP, "@pnan5221.proto get_id $(PORT)")
+   field (FTVL, "CHAR")
+   field (NELM, "100")
+   field (PINI, "YES")
+}

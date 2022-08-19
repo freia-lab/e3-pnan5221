@@ -1,0 +1,12 @@
+file "pnan5221-gen.template" { pattern {}
+{}
+}
+
+
+file "pnan5221-trace.template" { pattern 
+{N, MTRNR}
+{1  1}
+{2  1}
+{3  2}
+}
+

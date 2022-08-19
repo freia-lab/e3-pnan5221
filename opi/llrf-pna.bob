@@ -5,11 +5,11 @@
     <P>LLRF-PNA</P>
   </macros>
   <width>1500</width>
-  <height>650</height>
+  <height>1000</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
-    <text>My Display</text>
+    <text>PNA N5221A</text>
     <x use_class="true">20</x>
     <y use_class="true">0</y>
     <width>550</width>
@@ -30,37 +30,39 @@
   <widget type="label" version="2.0.0">
     <name>Label_3</name>
     <text>Intrument Id:</text>
-    <x>10</x>
-    <y>600</y>
+    <x>460</x>
+    <y>20</y>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
     <pv_name>$(P):Id</pv_name>
-    <x>120</x>
-    <y>600</y>
-    <width>640</width>
+    <x>570</x>
+    <y>20</y>
+    <width>410</width>
     <format>6</format>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>Embedded Display</name>
     <macros>
+      <MTRNR>1</MTRNR>
       <N>2</N>
     </macros>
     <file>helper-opi-files/one-trace.bob</file>
     <x>20</x>
     <y>50</y>
     <width>680</width>
-    <height>530</height>
+    <height>1150</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>Embedded Display_1</name>
     <macros>
+      <MTRNR>2</MTRNR>
       <N>3</N>
     </macros>
     <file>helper-opi-files/one-trace.bob</file>
     <x>690</x>
     <y>50</y>
     <width>680</width>
-    <height>530</height>
+    <height>1150</height>
   </widget>
 </display>

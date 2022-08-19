@@ -1,6 +1,6 @@
 # This should be a test or example startup script
 
-require pnan5221
+require pnan5221,main
 
 drvAsynIPPortConfigure("PORT1","192.168.10.33:5025",0,0,0)
 

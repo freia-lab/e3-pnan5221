@@ -23,3 +23,9 @@ get_trace {
    out "calc:data? fdata";
    in "%f";
 }
+
+get_ampl_and_phase {
+   out "calc:par:mnum \$1,fast";
+   out "calc:mark:y?";
+   in "%f,%(\$2)f";
+}

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <display version="2.0.0">
-  <name>Display</name>
+  <name>pna-trace</name>
+  <height>1150</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
     <text>Trace $(N)</text>
     <x use_class="true">20</x>
     <y use_class="true">0</y>
-    <width>550</width>
+    <width>220</width>
     <height use_class="true">50</height>
     <font use_class="true">
       <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
@@ -24,29 +25,29 @@
   </widget>
   <widget type="checkbox" version="2.0.0">
     <name>Check Box</name>
-    <pv_name>$(P):Mrk-$(N):cDisable</pv_name>
+    <pv_name>$(P):Mrkr-$(N):cDisable</pv_name>
     <label>Disable channel read-out</label>
-    <x>60</x>
-    <y>90</y>
+    <x>180</x>
+    <y>10</y>
     <width>230</width>
   </widget>
   <widget type="combo" version="2.0.0">
     <name>Combo Box</name>
     <pv_name>$(P):Mrkr-$(N):Freq:sRdV.SCAN</pv_name>
-    <x>300</x>
-    <y>90</y>
+    <x>420</x>
+    <y>10</y>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
     <pv_name>$(P):Mrkr-$(N):Freq:sRdV</pv_name>
-    <x>70</x>
-    <y>130</y>
-    <width>180</width>
+    <x>270</x>
+    <y>50</y>
+    <width>130</width>
   </widget>
   <widget type="xyplot" version="2.0.0">
     <name>X/Y Plot</name>
-    <x>30</x>
-    <y>180</y>
+    <x>40</x>
+    <y>90</y>
     <width>550</width>
     <height>340</height>
     <x_axis>
@@ -115,8 +116,154 @@
       </action>
     </actions>
     <pv_name>$(P):Mrkr-$(N):Freq:sRdV</pv_name>
-    <x>430</x>
-    <y>90</y>
+    <x>550</x>
+    <y>10</y>
     <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):Mrkr-$(N):Ampl:sRdV</pv_name>
+    <x>420</x>
+    <y>50</y>
+    <width>110</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):Mrkr-$(N):Phase:sRdV</pv_name>
+    <x>540</x>
+    <y>50</y>
+    <width>110</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Marker:</text>
+    <x>190</x>
+    <y>50</y>
+    <width>70</width>
+  </widget>
+  <widget type="xyplot" version="2.0.0">
+    <name>X/Y Plot_1</name>
+    <x>30</x>
+    <y>440</y>
+    <width>550</width>
+    <height>340</height>
+    <x_axis>
+      <title></title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>1000.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1000.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(P):Freq-$(N):sCircBuf</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="2.0.0">
+    <name>X/Y Plot_2</name>
+    <x>40</x>
+    <y>800</y>
+    <width>550</width>
+    <height>340</height>
+    <tooltip>$(traces[0].y_pv) VS $(traces[0].x_pv) </tooltip>
+    <x_axis>
+      <title>Motor Position</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>4000.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Resonance Freq</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>352.0</minimum>
+        <maximum>353.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(P):MTR$(MTRNR)-RBV:sCircBuf</x_pv>
+        <y_pv>$(P):Freq-$(N):sCircBuf</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>0</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>2</point_type>
+        <point_size>5</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
   </widget>
 </display>
