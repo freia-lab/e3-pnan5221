@@ -1,0 +1,93 @@
+record(waveform, "$(P):Id") {
+   field (DESC, "PNA's id")
+   field (DTYP, "stream")
+   field (INP, "@pnan5221.proto get_id $(PORT)")
+   field (FTVL, "CHAR")
+   field (NELM, "100")
+   field (PINI, "YES")
+}
+
+record(ai, "$(P):Mrkr-1:Freq:sRdV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, LINEAR)
+   field (ASLO, "1e-6")
+   field (DTYP, "stream")
+   field (LOPR, "0.1")
+   field (HOPR, "12.75e3")
+   field (PREC, "9")
+   field (INP, "@pnan5221.proto get_freq(1) $(PORT)")
+   field (SDIS,  "$(P):Mrk-1:cDisable")
+   field (DISV, "1")
+#   field (SCAN, "1 second")
+   field (FLNK, "$(P):Trace-1:sRdV")
+}
+record(waveform, "$(P):Trace-1:sRdV") {
+   field (DESC, "PNA's trace 1")
+   field (DTYP, "stream")
+   field (INP, "@pnan5221.proto get_trace(1) $(PORT)")
+   field (FTVL, "FLOAT")
+   field (NELM, "1000")
+}
+
+
+record (bo, "$(P):Mrk-1:cDisable") {
+   field (DESC, "Disable reading")
+}
+
+
+record(ai, "$(P):Mrkr-2:Freq:sRdV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, LINEAR)
+   field (ASLO, "1e-6")
+   field (DTYP, "stream")
+   field (LOPR, "0.1")
+   field (HOPR, "12.75e3")
+   field (PREC, "9")
+   field (INP, "@pnan5221.proto get_freq(2) $(PORT)")
+   field (SDIS,  "$(P):Mrk-2:cDisable")
+   field (DISV, "1")
+#   field (SCAN, "1 second")
+   field (FLNK, "$(P):Trace-2:sRdV")
+}
+record(waveform, "$(P):Trace-2:sRdV") {
+   field (DESC, "PNA's trace 2")
+   field (DTYP, "stream")
+   field (INP, "@pnan5221.proto get_trace(2) $(PORT)")
+   field (FTVL, "FLOAT")
+   field (NELM, "1000")
+}
+
+
+record (bo, "$(P):Mrk-2:cDisable") {
+   field (DESC, "Disable reading")
+}
+
+record(ai, "$(P):Mrkr-3:Freq:sRdV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, LINEAR)
+   field (ASLO, "1e-6")
+   field (DTYP, "stream")
+   field (LOPR, "0.1")
+   field (HOPR, "12.75e3")
+   field (PREC, "9")
+   field (INP, "@pnan5221.proto get_freq(3) $(PORT)")
+   field (SDIS,  "$(P):Mrk-3:cDisable")
+   field (DISV, "1")
+#   field (SCAN, "1 second")
+   field (FLNK, "$(P):Trace-3:sRdV")
+}
+record(waveform, "$(P):Trace-3:sRdV") {
+   field (DESC, "PNA's trace 3")
+   field (DTYP, "stream")
+   field (INP, "@pnan5221.proto get_trace(3) $(PORT)")
+   field (FTVL, "FLOAT")
+   field (NELM, "1000")
+}
+
+
+record (bo, "$(P):Mrk-3:cDisable") {
+   field (DESC, "Disable reading")
+}

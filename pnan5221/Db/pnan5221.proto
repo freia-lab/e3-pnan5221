@@ -1,0 +1,25 @@
+# pnan5221.proto for N5221 PNA Network Analyzer
+Terminator = LF;
+   
+get_id {
+   ReplyTimeout = 5000;
+   out "*idn?";
+   in "%#s";
+}
+
+sel_trace {
+   out "calc:par:mnum \$1,fast";
+}
+
+get_freq {
+   out "calc:par:mnum \$1,fast";
+   out "calc:mark:x?";
+   in "%f";
+}
+
+get_trace {
+   Separator = ",";
+   out "calc:par:mnum \$1,fast";
+   out "calc:data? fdata";
+   in "%f";
+}

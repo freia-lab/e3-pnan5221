@@ -2,8 +2,18 @@ EPICS_MODULE_NAME := pnan5221
 
 E3_MODULE_VERSION := main
 E3_MODULE_NAME := pnan5221
+
+OPI_VERSION := 1.0.0
+OPI_DIRNAME := llrf-pna
+
+# Dependent module versions
+# For example:
+STREAM_DEP_VERSION:=2.8.22+0
+
+
 E3_MODULE_SRC_PATH := $(EPICS_MODULE_NAME)
 E3_MODULE_MAKEFILE := $(E3_MODULE_NAME).Makefile
+
 
 -include $(TOP)/configure/CONFIG_OPTIONS
 -include $(TOP)/configure/CONFIG_MODULE.local

@@ -30,11 +30,15 @@ ARCH_FILTER += linux-x86_64
 #     endif
 #
 # with $(ASYN_DEP_VERSION) defined in `configure/CONFIG_MODULE`
+REQUIRED += stream
+ifneq ($(strip $(STREAM_DEP_VERSION)),)
+stream_VERSION=$(STREAM_DEP_VERSION)
+endif
 
 # Since this file (pnan5221.Makefile) is copied into
 # the module directory at build-time, these paths have to be relative
 # to that path
-APP := pnan5221App
+APP := .
 APPDB := $(APP)/Db
 APPSRC := $(APP)/src
 
@@ -54,7 +58,7 @@ SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 # Same as with any source or header files, you can also use $SUBS and $TMPS to define
 # database files to be inflated (using MSI), e.g.
 #
-#     SUBS = $(wildcard $(APPDB)/*.substitutions)
+SUBS = $(wildcard $(APPDB)/*.substitutions)
 #     TMPS = $(wildcard $(APPDB)/*.template)
 
 USR_DBFLAGS += -I . -I ..
