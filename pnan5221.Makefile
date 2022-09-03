@@ -52,6 +52,7 @@ APPSRC := $(APP)/src
 TEMPLATES += $(wildcard $(APPDB)/*.db)
 TEMPLATES += $(wildcard $(APPDB)/*.proto)
 #TEMPLATES += $(wildcard $(APPDB)/*.template)
+TEMPLATES += $(APPDB)/mtr-scan.template
 
 SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 

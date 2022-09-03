@@ -13,6 +13,18 @@ record(ai, "$(P):Mrkr-$(N):Freq:sRdV") {
 #   field (SCAN, "1 second")
    field (FLNK, "$(P):Mrkr-$(N):Ampl:sRdV")
 }
+
+record(calc, "LLRF-PNA:Mrkr-$(N):Freq-rate") {
+  field (SCAN, "60 second")
+  field (DESC,"Rate of the frequency change")
+  field (INPA, "LLRF-PNA:Mrkr-$(N):Freq:sRdV")
+  field (INPB, "LLRF-PNA:Mrkr-$(N):Freq-rate.LA")
+  field (CALC, "(A-B)*1000")
+  field (EGU, "kHz/min")
+  field (PREC, "3")
+  field (PINI, "YES")
+}
+
 record(ai, "$(P):Mrkr-$(N):Ampl:sRdV") {
    field (DESC, "Amplitude")
    field (EGU, "dB")

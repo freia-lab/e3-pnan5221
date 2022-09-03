@@ -1,0 +1,23 @@
+# This should be the included snippet to configure and run the deployed IOC. It should be loaded with
+#
+#   iocshLoad("$(pnan5221_DIR)/pnan5221.iocsh", "IP=xxx.yyy.zzz.nnn IP_PORT=iiii")
+
+#- ###                pnan5221 iocsh                ###
+#- ####################################################
+#- >> Mandatory
+#- IP         - Instrument's IP address
+#
+#  >> Optional
+#  IP_PORT    - IP port number (default 5025)
+
+require iocshutils
+
+addScan(60)
+
+drvAsynIPPortConfigure("PORT1","$(IP):$(IP_PORT=5025)",0,0,0)
+
+#Indicate the folder where the protocol file is installed
+epicsEnvSet("STREAM_PROTOCOL_PATH","$(pnan5221_DB)")
+
+#Load your database defining the EPICS records
+dbLoadRecords("pnan5221.db", "PORT=PORT1,P=LLRF-PNA,DEV=Meas")

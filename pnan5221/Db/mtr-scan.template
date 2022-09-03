@@ -1,0 +1,31 @@
+record(bo, "$(P)Scan-MTR$(N):On") {
+   field(PINI, "YES")
+}
+
+record(ao, "$(P)Scan-MTR$(N):minMtrPos") {
+   field(VAL, "700")
+   field(EGU, "turn")
+   field(PINI, "YES")
+}
+
+record(ao, "$(P)Scan-MTR$(N):minDeltaF-rate") {
+   field(VAL, "2.0")
+   field(EGU, "kHz/min")
+   field(PREC, "3")
+   field(PINI, "YES")
+}
+
+
+record (calcout, "$(P)Scan-MTR$(N):cStop") {
+   field(PINI, "YES")
+   field(SCAN, "10 second")
+   field(INPA, "$(P)Scan-MTR$(N):On")
+   field(INPB, "ESSPMAC:MTR$(N).MOVN")
+   field(INPC, "$(P)Scan-MTR$(N):minMtrPos")
+   field(INPD, "$(P)Scan-MTR$(N):minDeltaF-rate")
+   field(INPE, "ESSPMAC:MTR$(N).RBV")
+   field(INPF, "LLRF-PNA:Mrkr-$(MRKR):Freq-rate")
+   field(OUT, "ESSPMAC:MTR$(N).STOP")
+   field(CALC, "(A=1)&&(B=1)&&(E>C)&&(ABS(F)<D)?1:0")
+}
+

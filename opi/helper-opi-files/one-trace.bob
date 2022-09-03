@@ -40,7 +40,7 @@
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
     <pv_name>$(P):Mrkr-$(N):Freq:sRdV</pv_name>
-    <x>270</x>
+    <x>110</x>
     <y>50</y>
     <width>130</width>
   </widget>
@@ -123,21 +123,21 @@
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
     <pv_name>$(P):Mrkr-$(N):Ampl:sRdV</pv_name>
-    <x>420</x>
+    <x>260</x>
     <y>50</y>
     <width>110</width>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>
     <pv_name>$(P):Mrkr-$(N):Phase:sRdV</pv_name>
-    <x>540</x>
+    <x>380</x>
     <y>50</y>
     <width>110</width>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_1</name>
     <text>Marker:</text>
-    <x>190</x>
+    <x>30</x>
     <y>50</y>
     <width>70</width>
   </widget>
@@ -211,7 +211,7 @@
     <height>340</height>
     <tooltip>$(traces[0].y_pv) VS $(traces[0].x_pv) </tooltip>
     <x_axis>
-      <title>Motor Position</title>
+      <title>Motor$(MTRNR) Position</title>
       <autoscale>false</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
@@ -261,9 +261,22 @@
         <line_width>1</line_width>
         <line_style>0</line_style>
         <point_type>2</point_type>
-        <point_size>5</point_size>
+        <point_size>2</point_size>
         <visible>true</visible>
       </trace>
     </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>𝚫F/𝚫t:</text>
+    <x>510</x>
+    <y>50</y>
+    <width>50</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P):Mrkr-$(N):Freq-rate</pv_name>
+    <x>560</x>
+    <y>50</y>
   </widget>
 </display>
