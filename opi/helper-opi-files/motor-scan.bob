@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <display version="2.0.0">
   <name>motor-scan</name>
-  <macros>
-    <MRKR>2</MRKR>
-    <MTR>1</MTR>
-  </macros>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button</name>
     <pv_name>LLRF:Scan-MTR$(MTR):On</pv_name>
