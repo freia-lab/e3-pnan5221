@@ -8,7 +8,7 @@ OPI_DIRNAME := llrf-pna
 
 # Dependent module versions
 # For example:
-STREAM_DEP_VERSION:=2.8.22+0
+STREAM_DEP_VERSION:=2.8.24+1
 
 
 E3_MODULE_SRC_PATH := $(EPICS_MODULE_NAME)
